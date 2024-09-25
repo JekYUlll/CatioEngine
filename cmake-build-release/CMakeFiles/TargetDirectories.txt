@@ -1,3 +1,0 @@
-F:/Program/CLionProjects/Vulkan/cmake-build-release/CMakeFiles/Vulkan.dir
-F:/Program/CLionProjects/Vulkan/cmake-build-release/CMakeFiles/edit_cache.dir
-F:/Program/CLionProjects/Vulkan/cmake-build-release/CMakeFiles/rebuild_cache.dir
