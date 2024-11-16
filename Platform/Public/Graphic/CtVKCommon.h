@@ -13,7 +13,7 @@ struct DeviceFeature{
     bool required;
 };
 
-// __FILENAME__报错，疑似是GCC版本的问题。换成__FILE__。顺便加一些编译器区分(后面应该把这些宏全依据编译器判断，分类放在一起)。
+// __FILENAME__报错，好像是GCC版本的问题。换成__FILE__。顺便加一些编译器区分(后面应该把这些宏全依据编译器判断，分类放在一起)。--作者在CtEngine里定义宏来解决
 #if defined(__GNUC__) || defined(__GNUG__)
         #if __GNUC__ < 12
 #define CALL_VK(func) check_vk_result(func, __FILENAME__, __LINE__, #func)
@@ -29,7 +29,6 @@ struct DeviceFeature{
 #define VK_D(type, device, obj) if(obj != VK_NULL_HANDLE) vkDestroy##type(device, obj, nullptr)
 #define VK_F(device, mem) if(mem != VK_NULL_HANDLE) vkFreeMemory(device, mem, nullptr)
 
-// ?
 #define ENUM_TO_STR(r) \
         case r: return  #r
 
@@ -78,8 +77,7 @@ static bool checkDeviceFeatures(const char* label, bool bExtension, uint32_t ava
     return bFoundAllFeatures;
 }
 
-static const char *
-vk_result_string(VkResult code){
+static const char* vk_result_string(VkResult code){
     switch (code) {
         ENUM_TO_STR(VK_SUCCESS);
         ENUM_TO_STR(VK_NOT_READY);

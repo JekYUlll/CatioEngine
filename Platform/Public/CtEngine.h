@@ -24,7 +24,8 @@
 #include <fstream>
 #include <sstream>
 
-#define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
+#define ARRAY_SIZE(a)       (sizeof(a) / sizeof(a[0]))
+// #define __FILENAME__        (strrchr(__FILE__, '/') + 1)
 
 #ifdef CT_ENGINE_PLATFORM_WIN32
 // Windows

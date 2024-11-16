@@ -6,6 +6,12 @@ add_library(catio_platform
         Private/Window/CtGLFWwindow.cpp
         Private/CtGraphicContext.cpp
         Private/Graphic/CtVKGraphicContext.cpp
+        Private/Graphic/CtVKDevice.cpp
+        Private/Graphic/CtVKQueue.cpp
+        Public/Graphic/CtVKSwapchain.h
+        Private/Graphic/CtVKSwapchain.cpp
+        Public/Graphic/CtVKRenderPass.h
+        Private/Graphic/CtVKRenderPass.cpp
 )
 
 target_include_directories(catio_platform PUBLIC External)

@@ -21,6 +21,8 @@ namespace cte {
         void PollEvents() override;
         void SwapBuffers() override;
 
+        [[nodiscard]] inline GLFWwindow* GetGLFWwindowHandle() const { return this->m_GLFWwindow; }
+
     private:
         GLFWwindow* m_GLFWwindow;
     };

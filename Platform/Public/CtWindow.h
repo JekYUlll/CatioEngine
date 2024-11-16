@@ -4,9 +4,7 @@
 
 #ifndef CTWINDOW_H
 #define CTWINDOW_H
-
 #include "CtEngine.h"
-// #include "glfw/src/internal.h" 引入会链接错误。傻逼Clion
 
 namespace cte {
     class CtWindow {
