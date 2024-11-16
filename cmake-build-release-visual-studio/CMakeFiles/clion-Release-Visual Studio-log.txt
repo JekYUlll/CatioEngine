@@ -1,7 +1,0 @@
-E:\Program\JetBrains\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=E:/Program/JetBrains/CLion/bin/ninja/win/x64/ninja.exe -G Ninja -S F:\Program\CLionProjects\Vulkan -B F:\Program\CLionProjects\Vulkan\cmake-build-release-visual-studio
-Platform: Windows
--- Using Win32 for window creation
-----> Find vulkan success : F:/_library/VulkanSDK/1.3.268.0/Include
--- Configuring done (0.3s)
--- Generating done (0.0s)
--- Build files have been written to: F:/Program/CLionProjects/Vulkan/cmake-build-release-visual-studio
