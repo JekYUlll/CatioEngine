@@ -26,6 +26,10 @@ namespace cte {
 
         bool ReCreate();
 
+        [[nodiscard]] const std::vector<VkImage>& GetImages() const { return m_images; }
+        [[nodiscard]] uint32_t GetWidth() const { return m_surfaceInfo.capabilities.currentExtent.width; }
+        [[nodiscard]] uint32_t GetHeight() const { return m_surfaceInfo.capabilities.currentExtent.height; }
+
     private:
         void SetupSurfaceCapabilities();
 

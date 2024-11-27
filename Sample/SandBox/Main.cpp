@@ -7,7 +7,9 @@
 #include "CtGraphicContext.h"
 #include "Graphic/CtVKGraphicContext.h"
 #include "Graphic/CtVKDevice.h"
+#include "Graphic/CtVKFrameBuffer.h"
 #include "Graphic/CtVKSwapChain.h"
+#include "Graphic/CtVKRenderPass.h"
 
 int main(int argc, char const* argv[]) {
 
@@ -26,6 +28,14 @@ int main(int argc, char const* argv[]) {
     std::shared_ptr<cte::CtVKDevice> device = std::make_shared<cte::CtVKDevice>(vkContext, 1, 1);
     std::shared_ptr<cte::CtVKSwapchain> swapchain = std::make_shared<cte::CtVKSwapchain>(vkContext, device.get());
     swapchain->ReCreate();
+    std::shared_ptr<cte::CtVKRenderPass> renderPass = std::make_shared<cte::CtVKRenderPass>(device.get());
+
+    std::vector<VkImage> swapchainImages = swapchain->GetImages();
+    std::vector<std::shared_ptr<cte::CtVKFrameBuffer>> framebuffers;
+    for(const auto& image : swapchainImages) {
+        std::vector<VkImage> images = { image };
+        framebuffers.push_back(std::make_shared<cte::CtVKFrameBuffer>(device.get(), renderPass.get(), images, swapchain->GetWidth(), swapchain->GetHeight()));
+    }
 
   while (!window->ShouldClose()) {
       window->PollEvents();

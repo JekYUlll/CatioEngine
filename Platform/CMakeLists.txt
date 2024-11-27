@@ -8,10 +8,14 @@ add_library(catio_platform
         Private/Graphic/CtVKGraphicContext.cpp
         Private/Graphic/CtVKDevice.cpp
         Private/Graphic/CtVKQueue.cpp
-        Public/Graphic/CtVKSwapchain.h
         Private/Graphic/CtVKSwapchain.cpp
-        Public/Graphic/CtVKRenderPass.h
         Private/Graphic/CtVKRenderPass.cpp
+        Public/Graphic/CtVKFrameBuffer.h
+        Private/Graphic/CtVKFrameBuffer.cpp
+        Public/Graphic/CtVKImageView.h
+        Private/Graphic/CtVKImageView.cpp
+        Public/Graphic/CtVKPipeline.h
+        Private/Graphic/CtVKPipeline.cpp
 )
 
 target_include_directories(catio_platform PUBLIC External)
