@@ -10,7 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-#resource dir configuration
+# resource dir configuration
 add_definitions(-DCT_DEFINE_RES_ROOT_DIR=\"${CMAKE_SOURCE_DIR}/Resource/\")
 set(CT_DEFINE_RES_ROOT_DIR "${CMAKE_SOURCE_DIR}/Resource/")
 
@@ -29,8 +29,8 @@ else ()
     message("Platform: Unsupported")
 endif ()
 
-#list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-#include(SPIR-V)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+include(SPIR-V)
 
 include_directories(Core/Public)
 include_directories(Platform/Public)

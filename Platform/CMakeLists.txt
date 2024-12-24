@@ -16,6 +16,7 @@ add_library(catio_platform
         Private/Graphic/CtVKImageView.cpp
         Public/Graphic/CtVKPipeline.h
         Private/Graphic/CtVKPipeline.cpp
+        Public/CtFileUtil.h
 )
 
 target_include_directories(catio_platform PUBLIC External)

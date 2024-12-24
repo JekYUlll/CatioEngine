@@ -8,8 +8,10 @@
 #include "Graphic/CtVKGraphicContext.h"
 #include "Graphic/CtVKDevice.h"
 #include "Graphic/CtVKFrameBuffer.h"
-#include "Graphic/CtVKSwapChain.h"
+#include "Graphic/CtVKSwapchain.h"
 #include "Graphic/CtVKRenderPass.h"
+#include "Graphic/CtVKPipeline.h"
+#include "CtFileUtil.h"
 
 int main(int argc, char const* argv[]) {
 
@@ -36,6 +38,13 @@ int main(int argc, char const* argv[]) {
         std::vector<VkImage> images = { image };
         framebuffers.push_back(std::make_shared<cte::CtVKFrameBuffer>(device.get(), renderPass.get(), images, swapchain->GetWidth(), swapchain->GetHeight()));
     }
+
+    std::shared_ptr<cte::CtVKPipelineLayout> pipelineLayout = std::make_shared<cte::CtVKPipelineLayout>(device.get(),
+        CT_RES_SHADER_DIR"00_hello_triangle.vert", CT_RES_SHADER_DIR"00_hello_triangle.frag");
+    std::shared_ptr<cte::CtVKPipeline> pipeline = std::make_shared<cte::CtVKPipeline>(device.get(),renderPass.get(), pipelineLayout.get());
+    pipeline->SetInputAssemblyState(VK_PRIMITIVE_TOPOLOGY_LINE_LIST)->EnableDepthTest();
+    pipeline->SetDynamicState({ VK_DYNAMIC_STATE_VIEWPORT, VK_DYNAMIC_STATE_SCISSOR });
+    pipeline->Create();
 
   while (!window->ShouldClose()) {
       window->PollEvents();

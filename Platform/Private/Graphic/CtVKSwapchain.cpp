@@ -27,7 +27,7 @@ namespace cte {
         LOG_D("presentMode   : {0}", vk_present_mode_string(m_surfaceInfo.presentMode));
         LOG_D("-----------------------------");
 
-        uint32_t imageCount = m_device->GetSettings().swapchainImageCount;
+        uint32_t imageCount = m_device->GetSettings().swapChainImageCount;
         if(imageCount < m_surfaceInfo.capabilities.minImageCount && m_surfaceInfo.capabilities.minImageCount > 0) {
             imageCount = m_surfaceInfo.capabilities.minImageCount;
         }

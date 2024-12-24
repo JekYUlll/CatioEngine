@@ -109,11 +109,22 @@ namespace cte {
             vkGetDeviceQueue(this->m_handle, presentQueueFamilyInfo.queueFamilyIndex, i , &queue);
             this->m_presentQueues.push_back(std::make_shared<CtVKQueue>(presentQueueFamilyInfo.queueFamilyIndex, i, queue, true));
         }
+        // create a pipeline cache
+        CreatePipelineCache();
     }
 
     CtVKDevice::~CtVKDevice() {
         vkDeviceWaitIdle(this->m_handle);
+        VK_D(PipelineCache, m_handle, m_pipelineCache);
         vkDestroyDevice(this->m_handle, nullptr);
     }
 
+    void CtVKDevice::CreatePipelineCache() {
+        VkPipelineCacheCreateInfo pipelineCacheInfo = {
+            .sType = VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO,
+            .pNext = nullptr,
+            .flags = 0,
+        };
+        CALL_VK(vkCreatePipelineCache(this->m_handle, &pipelineCacheInfo, nullptr, &m_pipelineCache));
+    }
 }
